@@ -15,10 +15,11 @@ def rename_pattern(selected_files, regexp, cnt):
 
 
 def rename_files(files_list):
-    regexp_exprs = ['^(.*/)IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(je?pg)$',
-                    '^(.*/)PHOTO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(je?pg)$',
-                    '^(.*/)MVIMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(je?pg)$',
-                    '^(.*/)Pic_(\\d\\d\\d\\d)_(\\d\\d)_(\\d\\d)_.+\\.(je?pg)$',
+    regexp_exprs = ['^(.*/)IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+                    '^(.*/).*BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d).+\\_COVER.(jpe?g)$',
+                    '^(.*/)PHOTO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+                    '^(.*/)MVIMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+                    '^(.*/)Pic_(\\d\\d\\d\\d)_(\\d\\d)_(\\d\\d)_.+\\.(jpe?g)$',
                     '^(.*/)VID_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(mp4)$',
                     '^(.*/)(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d)-.+\\.(mp4)$',
                     ]
@@ -29,7 +30,6 @@ def rename_files(files_list):
         if len(selected_files) == 0:
             continue
 
-        print('-----')
         cnt = rename_pattern(selected_files, regexp, cnt)
         print('Renamed: ' + str(cnt - 1))
         print('')
