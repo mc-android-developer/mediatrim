@@ -3,7 +3,7 @@
 import os
 import fnmatch
 
-import imgtrim.rename
+import mediatrim.rename
 
 def print_files(files_list):
     print('Files to trim:')
@@ -12,22 +12,22 @@ def print_files(files_list):
 
 
 def main():
-    print('=== ImgTrim =====')
+    print('=== MediaTrim =====')
     work_dir = os.getcwd()
     print('Seek files in dir: ' + work_dir)
 
-    img_files = []
-    img_extensions = ['*.jpg', '*.jpeg', '*.png']
+    media_files = []
+    media_extensions = ['*.jpg', '*.jpeg', '*.png', '*.mp4', '*.avi']
     for root, dirs, files in os.walk(work_dir):
         for file in files:
-            for ext in img_extensions:
+            for ext in media_extensions:
                 if fnmatch.fnmatch(file, ext):
-                    img_files.append(os.path.join(root, file))
+                    media_files.append(os.path.join(root, file))
 
-    print_files(img_files)
+    print_files(media_files)
 
     print('Rename files')
-    imgtrim.rename.rename_files(img_files)
+    mediatrim.rename.rename_files(media_files)
 
 
 if __name__ == "__main__":
