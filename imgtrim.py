@@ -13,7 +13,7 @@ def print_files(files_list):
 
 def main():
     print('=== ImgTrim =====')
-    work_dir = os.path.dirname(os.path.realpath(__file__))
+    work_dir = os.getcwd()
     print('Seek files in dir: ' + work_dir)
 
     img_files = []
@@ -25,6 +25,9 @@ def main():
                     img_files.append(os.path.join(root, file))
 
     print_files(img_files)
+
+    print('Rename files')
+    imgtrim.rename.rename_files(img_files)
 
 
 if __name__ == "__main__":
