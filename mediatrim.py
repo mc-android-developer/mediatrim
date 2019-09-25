@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
-import os
 import fnmatch
+import os
 
+import mediatrim.exif
 import mediatrim.rename
+
 
 def print_files(files_list):
     for f in files_list:
@@ -26,8 +28,12 @@ def main():
     print('Found media files:')
     print_files(media_files)
 
+    print('Remove exif data:')
+    mediatrim.exif.remove_exif(media_files)
+
     print('Rename media files:')
     mediatrim.rename.rename_files(media_files)
+
 
 
 if __name__ == "__main__":
