@@ -50,7 +50,6 @@ def main():
         return
 
     work_dir = os.getcwd()
-    # work_dir = os.path.dirname(os.path.realpath(__file__))
 
     if len(sys.argv) > 1:
         print('Removing exif data on media files')
