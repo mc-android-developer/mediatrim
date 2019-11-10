@@ -20,11 +20,20 @@ def remove_duplicates(file_list):
     for file in file_list:
         md5sum = get_md5sum(file)
         if md5sum in files_md5.keys():
-            print('\t\tRemove duplicate: ' + file)
-            cnt += 1
-            subprocess.call(['rm', file])
+            files_md5[md5sum].append(file)
         else:
-            files_md5[md5sum] = file
+            files_md5[md5sum] = [file]
+
+    for key in files_md5:
+        duplicates = files_md5[key]
+        if (len(duplicates) > 1):
+            # remove smallest file from duplicates
+            duplicates.remove(min((word for word in duplicates if word), key=len))
+            # remove other duplicates
+            for file in duplicates:
+                print('\t\tRemove duplicate: ' + file)
+                cnt += 1
+                subprocess.call(['rm', file])
 
     print('\t\t' + str(cnt) + ' duplicates removed')
 
