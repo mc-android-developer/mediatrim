@@ -7,7 +7,7 @@ import re
 def rename_pattern(selected_files, regexp, cnt):
     for old_name in selected_files:
         date_search = re.search(regexp, old_name, re.IGNORECASE)
-        new_name = date_search.group(1) + date_search.group(2) + '.' + date_search.group(3) + '.' + date_search.group(4) + '_' + str(cnt) + '.' + date_search.group(5)
+        new_name = date_search.group(1) + date_search.group(2).lower() + '.' + date_search.group(3).lower() + '.' + date_search.group(4).lower() + '_' + str(cnt) + '.' + date_search.group(5).lower()
         print('Old name:' + os.path.basename(old_name) + ' | New name:' + os.path.basename(new_name))
         os.rename(old_name, new_name)
         cnt = cnt + 1
@@ -16,12 +16,15 @@ def rename_pattern(selected_files, regexp, cnt):
 
 def rename_files(files_list):
     regexp_exprs = ['^(.*/?)IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
-                    '^(.*/?).*BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d).+\\_COVER.(jpe?g)$',
-                    '^(.*/?)PANO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',  # PANO_20190902_115101.vr.jpg
+                    '^(.*/?)IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
+                    '^(.*/?)00000IMG_00000_BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
+                    '^(.*/?)00000PORTRAIT_00000_BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+.(jpe?g)$',
+                    '^(.*/?)PANO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
                     '^(.*/?)PHOTO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
                     '^(.*/?)MVIMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
                     '^(.*/?)Pic_(\\d\\d\\d\\d)_(\\d\\d)_(\\d\\d)_.+\\.(jpe?g)$',
                     '^(.*/?)VID_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(mp4)$',
+                    '^(.*/?)VIDEO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(mp4)$',
                     '^(.*/?)(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d)-.+\\.(mp4)$',
                     ]
 
