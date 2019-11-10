@@ -4,6 +4,7 @@ import fnmatch
 import os
 
 import mediatrim.exif
+import mediatrim.remove_duplicates
 import mediatrim.rename
 
 
@@ -15,6 +16,10 @@ def print_files(files_list):
 def main():
     print('=== MediaTrim =====')
     work_dir = os.getcwd()
+    print('Work dir: ' + work_dir)
+    print('Remove duplicates:')
+    mediatrim.remove_duplicates.remove_duplicates_in_dir_recursively(work_dir)
+
     print('Seek media files in dir: ' + work_dir)
 
     media_files = []
@@ -33,7 +38,6 @@ def main():
 
     print('Rename media files:')
     mediatrim.rename.rename_files(media_files)
-
 
 
 if __name__ == "__main__":

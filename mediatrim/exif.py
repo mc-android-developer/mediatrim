@@ -58,7 +58,7 @@ def main():
                 remove_exif_on_file(file)
     else:
         all_img_files = []
-        for subdir, dirs, files in os.walk(work_dir):
+        for dir, subdirs, files in os.walk(work_dir):
             for file in files:
                 all_img_files.append(file)
 

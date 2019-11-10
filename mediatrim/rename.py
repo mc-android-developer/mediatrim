@@ -43,9 +43,9 @@ def main():
     print('Rename files in dir: ' + work_dir)
 
     all_img_files = []
-    for subdir, dir, files in os.walk(work_dir):
+    for dir, subdirs, files in os.walk(work_dir):
         for file in files:
-            all_img_files.append(subdir + '/' + file)
+            all_img_files.append(dir + '/' + file)
 
     rename_files(all_img_files)
 
