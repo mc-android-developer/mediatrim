@@ -15,17 +15,18 @@ def rename_pattern(selected_files, regexp, cnt):
 
 
 def rename_files(files_list):
-    regexp_exprs = ['^(.*/?)IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
-                    '^(.*/?)IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
-                    '^(.*/?)00000IMG_00000_BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
-                    '^(.*/?)00000PORTRAIT_00000_BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+.(jpe?g)$',
-                    '^(.*/?)PANO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
-                    '^(.*/?)PHOTO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
-                    '^(.*/?)MVIMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
-                    '^(.*/?)Pic_(\\d\\d\\d\\d)_(\\d\\d)_(\\d\\d)_.+\\.(jpe?g)$',
-                    '^(.*/?)VID_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(mp4)$',
-                    '^(.*/?)VIDEO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(mp4)$',
-                    '^(.*/?)(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d)-.+\\.(mp4)$',
+    regexp_exprs = ['^(.*/)\\d*.?IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+                    '^(.*/)\\d*.?IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
+                    '^(.*/)\\d*.?IMG_\\d+_BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
+                    '^(.*/)\\d*.?PORTRAIT_\\d+_BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+.(jpe?g)$',
+                    '^(.*/)\\d*.?PORTRAIT_\\d+_BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
+                    '^(.*/)PANO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+                    '^(.*/)PHOTO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+                    '^(.*/)MVIMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+                    '^(.*/)Pic_(\\d\\d\\d\\d)_(\\d\\d)_(\\d\\d)_.+\\.(jpe?g)$',
+                    '^(.*/)VID_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(mp4)$',
+                    '^(.*/)VIDEO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(mp4)$',
+                    '^(.*/)(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d)-.+\\.(mp4)$',
                     ]
 
     cnt = 1
