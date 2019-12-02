@@ -7,6 +7,9 @@ import sys
 
 
 def get_md5sum(file):
+    if not os.path.isfile(file):
+        return None
+
     hash_md5 = hashlib.md5()
     with open(file, "rb") as f:
         for chunk in iter(lambda: f.read(4096), b""):
