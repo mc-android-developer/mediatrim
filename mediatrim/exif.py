@@ -42,8 +42,7 @@ def remove_exif(file_list):
     for file in file_list:
         remove_exif_on_file(file)
 
-    print('Total updated files: ' + str(len(file_list))
-
+    print('Total updated files: ' + str(len(file_list)))
 
 def main():
     if not cmd_available('exiftool'):
