@@ -93,7 +93,7 @@ def rename_pattern(selected_files, regexp, cnt):
 
     return cnt
 
-def rename_using_patterns(files_list, cnt):
+def rename_files(files_list):
     regexp_exprs = ['^(.*/)\\d*.?IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
                 '^(.*/)\\d*.?IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
                 '^(.*/)\\d*.?IMG_\\d+_BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)\\d+_COVER.(jpe?g)$',
@@ -108,6 +108,19 @@ def rename_using_patterns(files_list, cnt):
                 '^(.*/)(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d)-.+\\.(mp4)$',
                 ]
 
+#    regexp_exprs = ['^(.*/?)IMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+#                    '^(.*/?).*BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d).+\\.(jpe?g)$',
+#                    '^(.*/?).*BURST(\\d\\d\\d\\d)(\\d\\d)(\\d\\d).+\\_COVER.(jpe?g)$',
+#                    '^(.*/?)PANO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',  # PANO_20190902_115101.vr.jpg
+#                    '^(.*/?)PHOTO_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+#                    '^(.*/?).*PORTRAIT_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+#                    '^(.*/?)MVIMG_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(jpe?g)$',
+#                    '^(.*/?)Pic_(\\d\\d\\d\\d)_(\\d\\d)_(\\d\\d)_.+\\.(jpe?g)$',
+#                    '^(.*/?)VID_(\\d\\d\\d\\d)(\\d\\d)(\\d\\d)_.+\\.(mp4)$',
+#                    '^(.*/?)(\\d\\d\\d\\d)-(\\d\\d)-(\\d\\d)-.+\\.(mp4)$',
+#                    ]
+
+    cnt = 1
     for regexp in regexp_exprs:
         selected_files = list(filter(re.compile(regexp).search, files_list))
         if len(selected_files) == 0:
